@@ -12,7 +12,9 @@ import polytech.tours.di.parallel.tsp.Solution;
 public class MyAlgorithm implements Algorithm {
 
 	@Override
-	public Solution run(Properties config) {
+	public Solution run(Properties config, Random rnd) {
+		System.out.println("Started thread " + Thread.currentThread());
+		
 		MyCalculator calc = new MyCalculator();
 		
 		InstanceReader ir=new InstanceReader();
@@ -20,7 +22,6 @@ public class MyAlgorithm implements Algorithm {
 		Instance instance=ir.getInstance();
 		double max_cpu=Double.valueOf(config.getProperty("maxcpu"));
 
-		Random rnd=new Random(Long.valueOf(config.getProperty("seed")));
 		Solution s=new Solution();
 		Solution s2;
 		Solution best=null;
@@ -45,7 +46,7 @@ public class MyAlgorithm implements Algorithm {
 			iterations++;
 		}
 		//return the solution
-		System.out.println(iterations);
+		System.out.println("Ended thread " + Thread.currentThread() + " at " + iterations);
 		return best;
 		
 		

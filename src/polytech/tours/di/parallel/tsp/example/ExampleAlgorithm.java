@@ -20,7 +20,7 @@ import polytech.tours.di.parallel.tsp.TSPCostCalculator;
 public class ExampleAlgorithm implements Algorithm {
 
 	@Override
-	public Solution run(Properties config) {
+	public Solution run(Properties config, Random rnd) {
 
 		//read instance
 		InstanceReader ir=new InstanceReader();
@@ -33,7 +33,7 @@ public class ExampleAlgorithm implements Algorithm {
 		//read maximum CPU time
 		long max_cpu=Long.valueOf(config.getProperty("maxcpu"));
 		//build a random solution
-		Random rnd=new Random(Long.valueOf(config.getProperty("seed")));
+		//Random rnd=new Random(Long.valueOf(config.getProperty("seed")));  // MODIFIED to remove errors
 		Solution s=new Solution();
 		Solution best=null;
 		long startTime=System.currentTimeMillis();

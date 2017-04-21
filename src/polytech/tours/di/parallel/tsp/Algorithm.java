@@ -1,6 +1,7 @@
 package polytech.tours.di.parallel.tsp;
 
 import java.util.Properties;
+import java.util.Random;
 
 /**
  * Defines the interface to optimization algorithms
@@ -15,6 +16,6 @@ public interface Algorithm {
 	 * @param config the algorithm's configuration
 	 * @return the solution to the problem
 	 */
-	public Solution run(Properties config);
+	public Solution run(Properties config, Random rnd);
 	
 }
